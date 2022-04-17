@@ -1,0 +1,64 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  html , body , #root {
+    height: 100vh;
+  }
+  
+  a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  #root {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #root > main , #root > header , #root > footer {
+    padding: 1rem;
+  }
+  
+  #root > main {
+    flex-grow: 1;
+  }
+  
+  .header {
+    
+    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    
+    &__brand{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      &__titulo{
+        color: #A3E4D7;
+      }
+      &__logon-carrito{
+        a{
+          margin:0 1rem;
+        }        
+      }
+    }
+    hr{
+      width: 80%;
+      margin: .5rem auto;
+    }
+    &__container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      nav {
+        a {
+          margin-right: 1rem;
+        }
+      }
+    }
+    
+  }
+  
