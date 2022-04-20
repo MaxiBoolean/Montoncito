@@ -27,36 +27,30 @@
   }
   
   .header {
-    
-    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     
     &__brand{
-      display: flex;
+      /* display: flex;
       flex-direction: row;
       justify-content: space-between;
-      align-items: center;
+      align-items: center; */
       &__titulo{
         color: #A3E4D7;
       }
-      &__logon-carrito{
-        a{
-          margin:0 1rem;
-        }        
-      }
     }
-    hr{
-      width: 80%;
-      margin: .5rem auto;
-    }
-    &__container{
+    &__logon-carrito{
       display: flex;
-      justify-content: center;
       align-items: center;
-      nav {
-        a {
-          margin-right: 1rem;
-        }
+      a{
+        margin:0 1rem;
+      }        
+    }
+    nav {
+      a {
+        margin-right: 1rem;
       }
     }
     
