@@ -1,4 +1,5 @@
 import React from 'react';
+import CartWidget from './CartWidget';
 
 function NavBar() {
   return (
@@ -14,7 +15,7 @@ function NavBar() {
     </nav>
     <div className="header__logon-carrito">
         <a href="">Iniciar sesión</a>
-        <a href=""><span class="material-icons">shopping_cart</span></a>
+        <a href=""><CartWidget/></a>
     </div>
     </>
   )
