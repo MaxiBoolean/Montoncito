@@ -1,9 +1,10 @@
 import React from 'react'
+import ItemListContainer from "./components/ItemListContainer"
 
 function Main() {
   return (
     <main>
-      main
+      <ItemListContainer greeting="¡Bienvenido a Montoncito!"/>
     </main>
   )
 }

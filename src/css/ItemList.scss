@@ -1,0 +1,44 @@
+.cardContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    
+    article{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: space-between;
+        width: 20rem;
+        padding: 1rem;
+        margin: 1rem;
+        border: 3px solid lightblue;
+        border-radius: .3rem;
+        
+        div:first-child{
+            height: 3rem;
+        }
+        img{
+            width: 100%;
+            height: 15rem;
+        }
+        h3{
+            align-self: center;
+            font-size: 1.3rem;
+            color: rgb(106, 190, 217);            
+        }
+        button{
+            font-size: 1rem;
+            background-color: white;
+            border: 1px solid lightblue;
+            border-radius: .3rem;
+            color: lightblue;
+            font-weight: bold;
+            padding: .3rem;
+            &:hover{
+                background-color:lightblue ;
+                color: white;
+            }
+        }
+    }
+}
