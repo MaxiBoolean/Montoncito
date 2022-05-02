@@ -1,17 +1,15 @@
+import React from "react";
 import { useEffect, useState } from "react";
-import ItemCount from "./ItemCount";
-import ItemList from "./ItemList";
+import ItemDetail from "./ItemDetail";
 
-const ItemListContainer = () => {
-  const onAdd = () => {
-    //función onAdd
-  };
-
+const ItemDetailContainer = () => {
   const productosIniciales = [
     {
       id: 1,
       nombre: "Taza Valorant",
       precio: 140,
+      descripcion:
+        'Taza del juego "Valorant" realizada en cerámica. Peso: 200Gr',
       imagen: "https://m.media-amazon.com/images/I/31KKr4nEfLL._AC_.jpg",
     },
     {
@@ -42,26 +40,25 @@ const ItemListContainer = () => {
     });
     //Se verifica con then la finalización de la carga y cambia el estado de "setCargando" a false
     pedido.then(() => {
-      console.log("Termino el pedido bien!");
+      console.log("Termino la carga Item Detail Container");
       setCargando(false);
       setProductos(productosIniciales);
     });
-  });
+  }, []);
 
   if (cargando) {
     return <p>Cargando...</p>;
   } else {
-    return <ItemList productos={productos} />;
+    return (
+      <ItemDetail
+        key={productos[0].id}
+        nombre={productos[0].nombre}
+        imagen={productos[0].imagen}
+        descripcion={productos[0].descripcion}
+        precio={productos[0].precio}
+      />
+    );
   }
-
-  /* return (
-    <>
-      <h2>{props.greeting}</h2>
-      <ItemCount stock={10} init={1} onAdd={onAdd}/>
-      <ItemList/>
-    </>
-    
-  ) */
 };
 
-export default ItemListContainer;
+export default ItemDetailContainer;

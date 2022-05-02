@@ -1,51 +1,51 @@
-.ItemCount{
-    display: flex;
-    margin: auto;
-    flex-direction: column;
-    width: 15rem;
+.ItemCount {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  width: 15rem;
 
-    p:first-child{
-        padding-bottom: 2rem;
-        font-weight: bold;
+  p:first-child {
+    padding-bottom: 2rem;
+    font-weight: bold;
+  }
+  & > div {
+    padding: 0.5rem;
+    background-color: rgb(246, 245, 245);
+  }
+  div:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2rem;
+    background-color: white;
+    border: 1px solid lightblue;
+    border-radius: 0.3rem;
+  }
+  &__sumRes {
+    color: lightblue;
+    background-color: white;
+    border: none;
+  }
+  &__confirmar {
+    background-color: white;
+    border: 1px solid lightblue;
+    color: lightblue;
+    font-weight: bold;
+    padding: 0.2rem;
+    margin: 0.2rem;
+    border-radius: 0.3rem;
+    &:hover {
+      background-color: lightblue;
+      color: white;
     }
-    &>div{
-        padding: .5rem;
-        background-color: rgb(246, 245, 245); 
-    }
-    div:nth-child(2){
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: .2rem;
-        background-color: white;
-        border: 1px solid lightblue;
-        border-radius: .3rem;
-    }
-    &__sumRes{
-        color: lightblue;
-        background-color: white;
-        border: none;
-    }
-    &__confirmar{
-        background-color: white;
-        border: 1px solid lightblue;
-        color: lightblue;
-        font-weight: bold;
-        padding: .2rem;
-        margin: .2rem;
-        border-radius: .3rem;
-        &:hover{
-            background-color:lightblue ;
-            color: white;
-        }
-    }
-    &__comprado{
-        background-color: olivedrab;
-        border: 1px solid green;
-        color: white;
-        font-weight: bold;
-        padding: .2rem;
-        margin: .2rem;
-        border-radius: .3rem;
-    }
+  }
+  &__comprado {
+    background-color: olivedrab;
+    border: 1px solid green;
+    color: white;
+    font-weight: bold;
+    padding: 0.2rem;
+    margin: 0.2rem;
+    border-radius: 0.3rem;
+  }
 }
