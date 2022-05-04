@@ -36,11 +36,10 @@ const ItemDetailContainer = () => {
     const pedido = new Promise((res) => {
       setTimeout(() => {
         res(productosIniciales);
-      }, 2000);
+      }, 500);
     });
     //Se verifica con then la finalización de la carga y cambia el estado de "setCargando" a false
     pedido.then(() => {
-      console.log("Termino la carga Item Detail Container");
       setCargando(false);
       setProductos(productosIniciales);
     });

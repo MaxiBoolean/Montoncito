@@ -1,6 +1,16 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+
 
 const Item = ({ producto }) => {
+
+  const navigate = useNavigate()
+
+  const handleClick = ()=>{
+  navigate(`/producto/${producto.id}`)
+  }
+
   return (
     <article>
       <div>
@@ -9,7 +19,7 @@ const Item = ({ producto }) => {
       <img src={producto.imagen} alt="card"></img>
       <div>
         <p>Precio: ${producto.precio}</p>
-        <button>Detalles</button>
+        <button onClick={handleClick}>Ver más</button>
       </div>
     </article>
   );
