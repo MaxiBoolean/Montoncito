@@ -4,15 +4,7 @@
   flex-direction: column;
   width: 15rem;
 
-  p:first-child {
-    padding-bottom: 2rem;
-    font-weight: bold;
-  }
-  & > div {
-    padding: 0.5rem;
-    background-color: rgb(246, 245, 245);
-  }
-  div:nth-child(2) {
+  div:nth-child(1) {
     display: flex;
     justify-content: space-between;
     align-items: center;

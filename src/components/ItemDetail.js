@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import ItemCount from "./ItemCount";
 
 const ItemDetail = (props) => {
+
+  const[cartItems,setCartItems] = useState(0)
+
+  const onAdd = (cantidad) =>{
+    setCartItems(cantidad)
+    console.log(cartItems) //Aca traigo cantidad de items desde ItemCount.js
+  }
+
   return (
     <div className="cardContainer">
       <article>
@@ -13,7 +22,7 @@ const ItemDetail = (props) => {
         </div>
         <div>
           <p>Precio: ${props.precio}</p>
-          <button>Comprar</button>
+          <ItemCount onAdd={onAdd} stock={10} init={1}/>          
         </div>
       </article>
     </div>
