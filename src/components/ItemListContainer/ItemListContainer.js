@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import ItemList from "./ItemList";
+import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = () => {
    const productosIniciales = [
@@ -37,7 +37,7 @@ const ItemListContainer = () => {
   
   
 
-  //Se genera un Timeout de 2seg. para simular carga.
+  //Se genera un Timeout de medio seg. para simular carga.
   useEffect(() => {
     const pedido = new Promise((res) => {
       setTimeout(()=>{
@@ -50,7 +50,7 @@ const ItemListContainer = () => {
           console.log(`Se visualiza todo el catalogo`)
           res(productosIniciales);
         }
-      },2000);
+      },500);
     });
 
     //Se verifica con then la finalización de la carga y cambia el estado de "setCargando" a false

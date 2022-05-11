@@ -1,5 +1,5 @@
-@import "ItemCount";
-@import "ItemList";
+@import "../components/ItemCount/ItemCount.scss";
+@import "../components/ItemList/ItemList.scss";
 
 * {
   padding: 0;
@@ -40,10 +40,6 @@ a {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
   &__brand {
-    /* display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center; */
     &__titulo {
       color: #a3e4d7;
     }

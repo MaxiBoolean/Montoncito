@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import ItemDetail from "./ItemDetail";
+import ItemDetail from "../ItemDetail/ItemDetail";
 
 const ItemDetailContainer = () => {
   const productosIniciales = [
@@ -31,7 +31,7 @@ const ItemDetailContainer = () => {
   const [cargando, setCargando] = useState(true);
   const [productos, setProductos] = useState([]);
 
-  //Se genera un Timeout de 2seg. para simular carga.
+  //Se genera un Timeout de medio seg. para simular carga.
   useEffect(() => {
     const pedido = new Promise((res) => {
       setTimeout(() => {

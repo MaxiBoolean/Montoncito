@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext } from "react";
-import { contexto } from "./MiContexto";
+import { contexto } from "../CartContext/CartContext";
 
 const Carrito = () => {
 

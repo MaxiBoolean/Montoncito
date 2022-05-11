@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { contexto } from "./MiContexto";
+import { contexto } from "../CartContext/CartContext";
 
 const CartWidget = () => {
   const {cantidad_total} = useContext(contexto);

@@ -1,7 +1,7 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import Main from "./Main";
-import MiCustomProvider from "./components/MiContexto";
+import MiCustomProvider from "./components/CartContext/CartContext";
 
 import { BrowserRouter } from "react-router-dom";
 

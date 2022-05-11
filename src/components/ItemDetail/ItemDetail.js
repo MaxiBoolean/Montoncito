@@ -1,13 +1,16 @@
-import React, { useState } from "react";
-import ItemCount from "./ItemCount";
+import React, { useContext, useState } from "react";
+import ItemCount from "../ItemCount/ItemCount";
+import {contexto} from "../CartContext/CartContext"
 
 const ItemDetail = (props) => {
 
   const[cartItems,setCartItems] = useState(0)
+  const {addItem} = useContext(contexto)
 
   const onAdd = (cantidad) =>{
     setCartItems(cantidad)
     console.log(cartItems) //Aca traigo cantidad de items desde ItemCount.js
+    addItem(props, cantidad)
   }
 
   return (
