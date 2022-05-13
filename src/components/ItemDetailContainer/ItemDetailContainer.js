@@ -1,6 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import {db} from "../Firebase/Firebase"
+import { collection, getDoc, doc, getDocs, addDoc, query } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
   const productosIniciales = [
@@ -16,6 +18,8 @@ const ItemDetailContainer = () => {
       id: 2,
       nombre: "Llavero Draven - League of Legends",
       precio: 90,
+      descripcion:
+        'Llavero de Draven papaa',
       imagen:
         "https://http2.mlstatic.com/D_NQ_NP_664051-MLA43149298209_082020-O.jpg",
     },

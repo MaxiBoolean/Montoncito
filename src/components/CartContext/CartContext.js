@@ -14,7 +14,8 @@ const MiCustomProvider = ({ defaultValue = [], children }) => {
       const newCart = [...carrito];
       for (let e of newCart) {
         if (e.item.id == item.id) {
-          item.cantidad = item.cantidad + cantidad;
+          //item.cantidad = item.cantidad + cantidad;
+          e.cantidad = e.cantidad + cantidad;
         }
       }
       setCarrito(newCart);
@@ -30,7 +31,7 @@ const MiCustomProvider = ({ defaultValue = [], children }) => {
   };
   //Función que me indica si el item está en el carrito
   const isInCart = (id) => {
-    return carrito.find((e) => e.id === id);
+    return carrito.find((e) => e.item.id === id);
   };
 
   const removeItem = (id)=>{

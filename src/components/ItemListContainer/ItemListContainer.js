@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
+import {db} from "../Firebase/Firebase"
+import { collection, getDoc, doc, getDocs, addDoc, query } from "firebase/firestore";
 
 const ItemListContainer = () => {
-   const productosIniciales = [
+  /*   const productosIniciales = [
     {
       id: 1,
       nombre: "Taza Valorant",
@@ -27,19 +29,31 @@ const ItemListContainer = () => {
       imagen:
         "https://www.morph.com.ar/pub/media/catalog/product/cache/c249fbb42cf583b1a8cf6f6bd1b7b4b4/3/3/335484_alfplacacats.jpg",
     },
-  ];
+  ]; */
 
   const [cargando, setCargando] = useState(true);
   const [productos, setProductos] = useState([]);
 
-  const {nombreCategoria} = useParams();
-  
-  
-  
+  const { nombreCategoria } = useParams();
 
   //Se genera un Timeout de medio seg. para simular carga.
   useEffect(() => {
-    const pedido = new Promise((res) => {
+    const productosCollection = collection(db, "productosIniciales"); //Aca se trae la bd de Firebase
+    const consulta = getDocs(productosCollection);
+    consulta
+      .then((resultado) => {
+        const productos = resultado.docs.map((doc) => {
+          const productoConId = doc.data();
+          productoConId.id = doc.id;
+          return productoConId;
+        });
+        setProductos(productos);
+        setCargando(false);
+      })
+      .catch(() => {})
+      .finally(() => {});
+
+    /*  const pedido = new Promise((res) => {
       setTimeout(()=>{
         if (nombreCategoria != undefined){  
           console.log(`Se filtrará por: ${nombreCategoria}`)
@@ -57,8 +71,8 @@ const ItemListContainer = () => {
     pedido.then((items) => {
       setCargando(false);
       setProductos(items);
-    });
-  },[nombreCategoria]);
+    }); */
+  }, [nombreCategoria]);
 
   if (cargando) {
     return <p>Cargando...</p>;
@@ -68,13 +82,3 @@ const ItemListContainer = () => {
 };
 
 export default ItemListContainer;
-
-
-/* return (
-    <>
-      <h2>{props.greeting}</h2>
-      <ItemCount stock={10} init={1} onAdd={onAdd}/>
-      <ItemList/>
-    </>
-    
-  ) */
