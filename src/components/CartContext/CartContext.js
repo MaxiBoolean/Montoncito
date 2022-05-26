@@ -3,17 +3,17 @@ import { createContext, useState } from "react";
 export const contexto = createContext();
 const { Provider } = contexto;
 
-const MiCustomProvider = ({ defaultValue = [], children }) => {
-  const [carrito, setCarrito] = useState(defaultValue);
-  /* const [cantidad_total, setCantidad_total] = useState(0);
-  const [precio_total, setPrecio_total] = useState(0); */
+const MiCustomProvider = ({ children }) => {
+  const [carrito, setCarrito] = useState([]);
+  const [cantidad_total, setCantidad_total] = useState(0);
+  const [precio_total, setPrecio_total] = useState(0);
 
   //Función para verificar si ya está el item en el carrito, si está le sumo la cantidad ingresada al existente
   const addItem = (item, cantidad) => {
     if (isInCart(item.id)) {
       const newCart = [...carrito];
       for (let e of newCart) {
-        if (e.item.id == item.id) {
+        if (e.item.id === item.id) {
           //item.cantidad = item.cantidad + cantidad;
           e.cantidad = e.cantidad + cantidad;
         }
