@@ -1,0 +1,58 @@
+.containerCarrito {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button {
+    font-size: 1rem;
+    padding: 0.5rem;
+    font-weight: bold;
+
+    border-radius: 0.5rem;
+    background-color: white;
+    color: #4ebea8;
+    border: 1px solid #4ebea8;
+    &:hover {
+      background-color: #4ebea8;
+      color: black;
+    }
+  }
+  .btnRed {
+    color: rgb(196, 62, 0);
+    border: 1px solid rgb(196, 62, 0);
+    &:hover {
+      background-color: rgb(196, 62, 0);
+      color: black;
+    }
+  }
+
+  table {
+    width: 70%;
+    border-collapse: collapse;
+    border: 3px solid #a3e4d7;
+    th {
+      font-size: 1.3rem;
+    }
+    tr {
+      td {
+        padding: 0.5rem 0;
+        text-align: center;
+        img {
+          width: 7rem;
+        }
+      }
+    }
+  }
+  h3 {
+    padding: 2rem 0;
+    color: #5fe1c7;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  div {
+    padding-top: 2rem;
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+  }
+}

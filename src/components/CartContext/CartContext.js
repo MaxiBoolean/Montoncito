@@ -35,21 +35,35 @@ const MiCustomProvider = ({ children }) => {
   };
 
   const removeItem = (id)=>{
-    const newCart = [...carrito].map(e => e.id !== id);
+    
+    const newCart = [...carrito].filter((e) => e.item.id != id);
     setCarrito(newCart)
+    /* let index = carrito.find(e => e.item.id === id)
+    console.log(index)
+    if(index !== -1){
+      return setCarrito(carrito.filter(item => item.item.id !== id ))
+    } */
   }
 
-  const clearCart = () =>{
+  const vaciarCarrito = () =>{
     setCarrito([])
   }
 
-  /* const valorDelContexto = {
-    cantidad_total,
-    precio_total,
-    carrito,
-  }; */
+  const cantidadTotal = (carrito) => {
+    let cantidad = 0
+    carrito.forEach((element) => 
+    cantidad = cantidad + element.cantidad)
+    return cantidad
+}
 
-  return <Provider value={{carrito, addItem, removeItem , clearCart}}>{children}</Provider>;
+const precioTotal = () => {
+    let total = 0
+    carrito.forEach((element) => {
+        total = total + (element.cantidad * element.item.precio)
+    })
+    return total
+}
+  return <Provider value={{carrito, addItem, removeItem , vaciarCarrito,cantidadTotal,precioTotal}}>{children}</Provider>;
 };
 
 export default MiCustomProvider;

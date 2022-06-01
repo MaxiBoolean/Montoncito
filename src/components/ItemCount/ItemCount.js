@@ -24,7 +24,6 @@ const ItemCount = ({ stock, init, onAdd }) => {
       return console.log("No hay stock");
     } else {
       onAdd(contador); //Envio la cantidad de articulos a comprar al ItemDetail.js
-      console.log(contador);
       setConfirmado(true);
     }
   };
@@ -49,18 +48,11 @@ const ItemCount = ({ stock, init, onAdd }) => {
   } else {
     return (
       <div className="ItemCount">
-        <div>
-          <button onClick={restar} className="material-icons ItemCount__sumRes">
-            remove_circle
-          </button>
-          <p className="ItemCount__contador">{contador}</p>
-          <button onClick={sumar} className="material-icons ItemCount__sumRes">
-            add_circle
-          </button>
-        </div>
         <button className="ItemCount__comprado">¡Compra realizada!</button>
+        
       </div>
     );
+    //Agregar boton que vaya al carrito
   }
 };
 

@@ -4,15 +4,15 @@ import { useContext } from "react";
 import { contexto } from "../CartContext/CartContext";
 
 const CartWidget = () => {
-  const {cantidad_total} = useContext(contexto);
+  const {carrito,cantidadTotal} = useContext(contexto);
   
-
+  let contador = cantidadTotal(carrito)
   return (
     <Link to="/carrito">
-      <span className="material-icons">
-        shopping_cart
-      </span>
-        {cantidad_total}
+      <div className="contenedorWidget">
+      <span className="material-icons">shopping_cart</span>
+      {contador !== 0 && <p className="contadorCarrito">{contador}</p>}
+      </div>
     </Link>
   )
 };

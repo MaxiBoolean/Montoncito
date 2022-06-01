@@ -43,7 +43,7 @@ const ItemDetailContainer = () => {
     const consulta = getDoc(resultadoDelDoc);
     consulta
       .then((resultado) => {
-        setProducto(resultado.data());
+        setProducto({id: resultado.id, ...resultado.data()});
         setCargando(false);
       })
       .catch((error) => {

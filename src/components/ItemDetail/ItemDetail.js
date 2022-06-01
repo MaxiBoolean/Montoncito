@@ -9,7 +9,7 @@ const ItemDetail = ({productos}) => {
 
   const onAdd = (cantidad) =>{
     setCartItems(cantidad)
-    console.log(cartItems) //Aca traigo cantidad de items desde ItemCount.js
+    //console.log(cartItems) Aca traigo cantidad de items desde ItemCount.js
     addItem(productos, cantidad)
   }
 

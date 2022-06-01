@@ -1,5 +1,7 @@
 @import "../components/ItemCount/ItemCount.scss";
 @import "../components/ItemList/ItemList.scss";
+@import "../components/CartWidget/CartWidget.scss";
+@import "../components/Carrito/Carrito.scss";
 
 * {
   padding: 0;
@@ -53,7 +55,7 @@ a {
   }
   nav {
     a {
-      margin-right: 1rem;
+      margin:0 1rem;
     }
   }
 }
