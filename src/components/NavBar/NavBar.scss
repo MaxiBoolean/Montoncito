@@ -1,0 +1,35 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  
+    &__brand {
+      &__titulo {
+        color: #a3e4d7;
+      }
+    }
+    &__logon-carrito {
+      display: flex;
+      align-items: center;
+      a {
+        margin: 0 1rem;
+      }
+    }
+    nav {
+      a {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin:0 1rem;
+        color: #a3e4d7;
+      }
+    }
+  }
+
+  .active{
+    background-color: rgb(106, 190, 217);
+    color: white !important;
+    padding: .2rem;
+    border-radius: .3rem;
+    
+  }

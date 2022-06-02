@@ -14,7 +14,7 @@
     border: 1px solid #4ebea8;
     &:hover {
       background-color: #4ebea8;
-      color: black;
+      color: white;
     }
   }
   .btnRed {
@@ -22,7 +22,7 @@
     border: 1px solid rgb(196, 62, 0);
     &:hover {
       background-color: rgb(196, 62, 0);
-      color: black;
+      color: white;
     }
   }
 
@@ -30,6 +30,7 @@
     width: 70%;
     border-collapse: collapse;
     border: 3px solid #a3e4d7;
+    
     th {
       font-size: 1.3rem;
     }
@@ -44,15 +45,78 @@
     }
   }
   h3 {
-    padding: 2rem 0;
-    color: #5fe1c7;
+    padding: .3rem;
+    border-radius: .5rem;
+    color: white;
     font-weight: bold;
     font-size: 1.5rem;
+    background-color: #4ebea8;
   }
   div {
-    padding-top: 2rem;
+    padding: 2rem 0;
     display: flex;
-    width: 50%;
+    width: 70%;
     justify-content: space-around;
+    align-items: center;
+    
   }
+  .containerPrecio{
+      justify-content: space-between;
+  }
+
+  .containerForm{
+    width: 30%;
+    padding: 1rem 0;
+    background-color: lightblue;
+    border-radius: 2rem;
+    form{
+      display: flex;
+      flex-direction: column;
+      h4{
+        font-size: 1.4rem;
+      }
+      label{
+        padding: 1rem 0 .5rem 0;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+      input{
+        padding: .2rem;
+        border:none;
+        border-radius: .3rem;
+      }
+    }
+    button{
+      margin-top: 1rem;
+    }
+  }
+}
+
+.containerVacio{
+  margin: auto;
+  text-align: center;
+  padding: 1rem 0;
+  background-color: rgb(106, 190, 217);
+  width: 30%;
+  border-radius: 1rem;
+  p{
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+    padding-bottom: 1rem;
+  }
+  button {
+    font-size: 1rem;
+    padding: 0.5rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    background-color: white;
+    color: #4ebea8;
+    border: 1px solid #4ebea8;
+    &:hover {
+      background-color: #4ebea8;
+      color: white;
+    }
+  }
+  
 }

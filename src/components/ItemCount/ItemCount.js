@@ -48,7 +48,7 @@ const ItemCount = ({ stock, init, onAdd }) => {
   } else {
     return (
       <div className="ItemCount">
-        <button className="ItemCount__comprado">¡Compra realizada!</button>
+        <button className="ItemCount__comprado">¡Agregado al carrito!</button>
         
       </div>
     );

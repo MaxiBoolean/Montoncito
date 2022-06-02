@@ -10,7 +10,6 @@ const Header = () => {
       </div>
       <NavBar /> {/* Componente NavBar */}
       <div className="header__logon-carrito">
-        <Link to="">Iniciar sesión</Link>
         <Link to="/carrito">
           <CartWidget />
         </Link>

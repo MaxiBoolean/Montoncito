@@ -34,15 +34,15 @@ const MiCustomProvider = ({ children }) => {
     return carrito.find((e) => e.item.id === id);
   };
 
-  const removeItem = (id)=>{
+  const removeItem = (itemID)=>{
     
-    const newCart = [...carrito].filter((e) => e.item.id != id);
-    setCarrito(newCart)
-    /* let index = carrito.find(e => e.item.id === id)
+    /* const newCart = [...carrito].filter((e) => e.item.itemID != itemID);
+    setCarrito(newCart) */
+    let index = carrito.findIndex(e => e.item.ID === itemID)
     console.log(index)
     if(index !== -1){
-      return setCarrito(carrito.filter(item => item.item.id !== id ))
-    } */
+      setCarrito(carrito.filter(item => item.item.ID != itemID ))
+    }
   }
 
   const vaciarCarrito = () =>{

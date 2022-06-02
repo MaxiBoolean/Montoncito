@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import {Link} from "react-router-dom"
 import { useContext } from "react";
 import { contexto } from "../CartContext/CartContext";
 import { db } from "../Firebase/Firebase";
@@ -11,20 +12,28 @@ const Carrito = () => {
 
  
 
-  const guardarCompra = () =>{
+  const guardarCompra = (e) =>{
+    e.preventDefault()
+
     const ordenesCollection = collection(db,"ordenes")
+
+    const date = new Date().toLocaleString() + "";
+
     const orden = {
       buyer : {
-        name : "juan",
-        phone : "54555",
-        email : "test@test"
+        name: e.target[0].value,
+        email: e.target[1].value,
+        phone: "asd"
       },
       //items : [{id:1,titulo:"Pantalon"}],
       items : carrito,
-      date : "",
-      total : 10000
+      date : date,
+      total : precioTotal()
     }
-    const consulta = addDoc(ordenesCollection,orden)
+    
+    //CARGO LA ORDEN A LA BD
+    const consulta = addDoc(ordenesCollection,orden);
+
     consulta
     .then((resultado)=>{
       setIdCompra(resultado.id)
@@ -34,8 +43,19 @@ const Carrito = () => {
     })
   }
 
+  const deleteItem = (item) => () => {
+    removeItem(item)
+  }
+
   return (
-    <>{cantidadTotal(carrito) === 0 ? <p>No hay nada en el carrito! Volve a comprar</p> :
+    <>{cantidadTotal(carrito) === 0 ? 
+    <div className='containerVacio'>
+      <p>¡No hay nada en el carrito!</p> 
+      <Link to="/">
+        <button>Ir al Inicio</button>
+      </Link>
+    </div>
+    :
     <div className='containerCarrito'>       
       <h2>Carrito</h2>
       <table>
@@ -50,7 +70,6 @@ const Carrito = () => {
         </thead>
         <tbody>
         {carrito.map((e)=>{
-          console.log(e.item.id)
           return (
             <>
               <tr>
@@ -58,30 +77,33 @@ const Carrito = () => {
                 <td>{e.item.nombre}</td>
                 <td>$ {e.item.precio}</td>
                 <td>{e.cantidad}</td>
-                <td><button className='btnRed' onClick={removeItem}>Eliminar</button></td>                
-              </tr>  
-              
-              </>
+                <td><button className='btnRed' onClick={deleteItem(e.item.ID)}>Eliminar</button></td>                
+              </tr> 
+            </>
           )
         })}
         </tbody>
       </table>
-      <p></p>
-      <h3> Precio total: ${precioTotal()}</h3>
-      <div>
-      <button className='btnRed' onClick={vaciarCarrito}>Vaciar Carrito</button>
-      <button onClick={guardarCompra}> Finalizar compra</button>
+      <div className='containerPrecio'>
+        <h3> Precio total: $ {precioTotal()}</h3>
+        <button className='btnRed' onClick={vaciarCarrito}>Vaciar Carrito</button>
       </div>
+
+      <div className='containerForm'>
+        <form onSubmit={guardarCompra}>
+          <h4>Información de Envío</h4>
+          <label for="name" >Nombre completo:</label>
+          <input type="text" placeholder="Ej: Juanito Trop" id="name" name="name"></input>
+          <label for="telefono">Teléfono:</label>
+          <input type="tel" placeholder="Ej: 1134563444" id="telefono" name="telefono"></input>
+          <label for="email">Email:</label>
+          <input type="email" placeholder="Ej: JuanT@gmail.com" id="email" name="email"></input>
+          <button type='submit'> Finalizar compra</button>
+        </form>
+      </div>  
     </div>}
     </>
   )
 }
 
 export default Carrito
-
-{/* <div>
-  <p>Nombre: {e.item.nombre}</p>
-  <p>{e.item.descripcion}</p>
-  <img src={e.item.imagen} alt="imagen"></img>
-  <p>{e.item.precio}</p>
-</div> */}

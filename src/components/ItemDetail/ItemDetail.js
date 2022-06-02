@@ -4,12 +4,9 @@ import {contexto} from "../CartContext/CartContext"
 
 const ItemDetail = ({productos}) => {
 
-  const[cartItems,setCartItems] = useState(0)
   const {addItem} = useContext(contexto)
 
   const onAdd = (cantidad) =>{
-    setCartItems(cantidad)
-    //console.log(cartItems) Aca traigo cantidad de items desde ItemCount.js
     addItem(productos, cantidad)
   }
 

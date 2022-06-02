@@ -2,11 +2,15 @@
 @import "../components/ItemList/ItemList.scss";
 @import "../components/CartWidget/CartWidget.scss";
 @import "../components/Carrito/Carrito.scss";
+@import "../components/NavBar/NavBar.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
 }
 
 html,
@@ -35,27 +39,4 @@ a {
   flex-grow: 1;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
-  &__brand {
-    &__titulo {
-      color: #a3e4d7;
-    }
-  }
-  &__logon-carrito {
-    display: flex;
-    align-items: center;
-    a {
-      margin: 0 1rem;
-    }
-  }
-  nav {
-    a {
-      margin:0 1rem;
-    }
-  }
-}
