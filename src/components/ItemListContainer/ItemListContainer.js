@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
-import {db} from "../Firebase/Firebase"
-import { collection , getDocs  , query , where } from "firebase/firestore";
+import { db } from "../Firebase/Firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 const ItemListContainer = () => {
   const [cargando, setCargando] = useState(true);
@@ -17,12 +17,13 @@ const ItemListContainer = () => {
 
     if (nombreCategoria !== undefined) {
       setCargando(true);
-      console.log(`Se filtrará por: ${nombreCategoria}`);
-      const filtro = query(productosCollection,where("categoria", "==", nombreCategoria));
+      const filtro = query(
+        productosCollection,
+        where("categoria", "==", nombreCategoria)
+      );
       consulta = getDocs(filtro);
     } else {
       setCargando(true);
-      console.log(`Se visualiza todo el catalogo`);
       consulta = getDocs(productosCollection);
     }
 
@@ -34,14 +35,28 @@ const ItemListContainer = () => {
           setCargando(false);
           return productoConId;
         });
-        setProductos(productos);        
+        setProductos(productos);
       })
       .catch(() => {})
       .finally(() => {});
   }, [nombreCategoria]);
 
   return (
-    <>{cargando ? <div className="loader"><img src="https://i.picasion.com/pic92/545c8a4ce2f567293894e75808308b09.gif" width="100" height="100" border="0" alt="gift" /></div> : <ItemList productos={productos} />}</>
+    <>
+      {cargando ? (
+        <div className="loader">
+          <img
+            src="https://i.picasion.com/pic92/545c8a4ce2f567293894e75808308b09.gif"
+            width="100"
+            height="100"
+            border="0"
+            alt="gift"
+          />
+        </div>
+      ) : (
+        <ItemList productos={productos} />
+      )}
+    </>
   );
 };
 

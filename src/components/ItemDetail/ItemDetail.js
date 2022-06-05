@@ -1,24 +1,23 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import ItemCount from "../ItemCount/ItemCount";
-import {contexto} from "../CartContext/CartContext"
+import { contexto } from "../CartContext/CartContext";
 
-const ItemDetail = ({productos}) => {
-
-  const {addItem} = useContext(contexto)
+const ItemDetail = ({ productos }) => {
+  const { addItem } = useContext(contexto);
   let verificar = false;
 
-  const onAdd = (cantidad) =>{
-    addItem(productos, cantidad)
-  }
-  const verificarStock = ( ) =>{
+  const onAdd = (cantidad) => {
+    addItem(productos, cantidad);
+  };
+  const verificarStock = () => {
     let cantidad = productos.stock;
-    
-    if(cantidad === 0){
+
+    if (cantidad === 0) {
       verificar = true;
-      return verificar
+      return verificar;
     }
-  }
-  verificarStock()
+  };
+  verificarStock();
 
   return (
     <div className="cardDetailContainer">
@@ -29,9 +28,17 @@ const ItemDetail = ({productos}) => {
         <div>
           <h3>{productos.nombre}</h3>
           <p>"{productos.descripcion}"</p>
-          <p>Precio: <span>${productos.precio}</span></p>
-          <p>Disponibles: <span>{productos.stock}</span></p>
-          {(verificar) ? (<p className="sinStock">¡Sin Stock!</p>):(<ItemCount onAdd={onAdd} stock={productos.stock} init={1} />)}
+          <p>
+            Precio: <span>${productos.precio}</span>
+          </p>
+          <p>
+            Disponibles: <span>{productos.stock}</span>
+          </p>
+          {verificar ? (
+            <p className="sinStock">¡Sin Stock!</p>
+          ) : (
+            <ItemCount onAdd={onAdd} stock={productos.stock} init={1} />
+          )}
         </div>
       </article>
     </div>

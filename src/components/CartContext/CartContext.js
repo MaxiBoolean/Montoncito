@@ -5,8 +5,6 @@ const { Provider } = contexto;
 
 const MiCustomProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
-  const [cantidad_total, setCantidad_total] = useState(0);
-  const [precio_total, setPrecio_total] = useState(0);
 
   //Función para verificar si ya está el item en el carrito, si está le sumo la cantidad ingresada al existente
   const addItem = (item, cantidad) => {
@@ -34,32 +32,42 @@ const MiCustomProvider = ({ children }) => {
     return carrito.find((e) => e.item.id === id);
   };
 
-  const removeItem = (itemID)=>{
-    
+  const removeItem = (itemID) => {
     const newCart = [...carrito].filter((e) => e.item.id !== itemID);
-    setCarrito(newCart)
-    
-  }
+    setCarrito(newCart);
+  };
 
-  const vaciarCarrito = () =>{
-    setCarrito([])
-  }
+  const vaciarCarrito = () => {
+    setCarrito([]);
+  };
 
   const cantidadTotal = (carrito) => {
-    let cantidad = 0
-    carrito.forEach((element) => 
-    cantidad = cantidad + element.cantidad)
-    return cantidad
-}
+    let cantidad = 0;
+    carrito.forEach((element) => (cantidad = cantidad + element.cantidad));
+    return cantidad;
+  };
 
-const precioTotal = () => {
-    let total = 0
+  const precioTotal = () => {
+    let total = 0;
     carrito.forEach((element) => {
-        total = total + (element.cantidad * element.item.precio)
-    })
-    return total
-}
-  return <Provider value={{carrito, addItem, removeItem , vaciarCarrito,cantidadTotal,precioTotal}}>{children}</Provider>;
+      total = total + element.cantidad * element.item.precio;
+    });
+    return total;
+  };
+  return (
+    <Provider
+      value={{
+        carrito,
+        addItem,
+        removeItem,
+        vaciarCarrito,
+        cantidadTotal,
+        precioTotal,
+      }}
+    >
+      {children}
+    </Provider>
+  );
 };
 
 export default MiCustomProvider;
