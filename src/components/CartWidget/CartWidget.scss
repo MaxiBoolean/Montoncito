@@ -1,14 +1,23 @@
+.header__logon-carrito{
+    padding-right: 1rem;
+    span{
+        font-size: 2rem;
+    }
+}
+
 .contenedorWidget{
     display: flex;
     align-items: flex-end;
 }
 
 .contadorCarrito{
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     color: black;
     text-align: center;    
     border-radius: 50%;
     background-color: #a3e4d7;
     font-weight: bold;
+    font-size: 1.2rem;
+   
 }

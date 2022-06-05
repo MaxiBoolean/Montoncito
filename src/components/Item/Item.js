@@ -18,7 +18,7 @@ const Item = ({ producto }) => {
       </div>
       <img src={producto.imagen} alt="card"></img>
       <div>
-        <p>Precio: ${producto.precio}</p>
+        <p>Precio: <span>${producto.precio}</span></p>
         <button onClick={handleClick}>Ver más</button>
       </div>
     </article>

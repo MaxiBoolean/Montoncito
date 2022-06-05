@@ -36,13 +36,9 @@ const MiCustomProvider = ({ children }) => {
 
   const removeItem = (itemID)=>{
     
-    /* const newCart = [...carrito].filter((e) => e.item.itemID != itemID);
-    setCarrito(newCart) */
-    let index = carrito.findIndex(e => e.item.ID === itemID)
-    console.log(index)
-    if(index !== -1){
-      setCarrito(carrito.filter(item => item.item.ID != itemID ))
-    }
+    const newCart = [...carrito].filter((e) => e.item.id !== itemID);
+    setCarrito(newCart)
+    
   }
 
   const vaciarCarrito = () =>{

@@ -5,24 +5,33 @@ import {contexto} from "../CartContext/CartContext"
 const ItemDetail = ({productos}) => {
 
   const {addItem} = useContext(contexto)
+  let verificar = false;
 
   const onAdd = (cantidad) =>{
     addItem(productos, cantidad)
   }
+  const verificarStock = ( ) =>{
+    let cantidad = productos.stock;
+    
+    if(cantidad === 0){
+      verificar = true;
+      return verificar
+    }
+  }
+  verificarStock()
 
   return (
-    <div className="cardContainer">
+    <div className="cardDetailContainer">
       <article>
         <div>
+          <img src={productos.imagen} alt="imagen producto"></img>
+        </div>
+        <div>
           <h3>{productos.nombre}</h3>
-        </div>
-        <img src={productos.imagen} alt="card"></img>
-        <div>
-          <p>{productos.descripcion}</p>
-        </div>
-        <div>
-          <p>Precio: ${productos.precio}</p>
-          <ItemCount onAdd={onAdd} stock={10} init={1}/>          
+          <p>"{productos.descripcion}"</p>
+          <p>Precio: <span>${productos.precio}</span></p>
+          <p>Disponibles: <span>{productos.stock}</span></p>
+          {(verificar) ? (<p className="sinStock">¡Sin Stock!</p>):(<ItemCount onAdd={onAdd} stock={productos.stock} init={1} />)}
         </div>
       </article>
     </div>

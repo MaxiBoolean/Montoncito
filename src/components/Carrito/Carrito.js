@@ -1,19 +1,24 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Orden from "../Orden/Orden";
 import { useContext } from "react";
 import { contexto } from "../CartContext/CartContext";
 import { db } from "../Firebase/Firebase";
 import { collection, addDoc } from "firebase/firestore";
+import Swal from "sweetalert2";
+
+
 
 const Carrito = () => {
-  const { carrito, vaciarCarrito, cantidadTotal, removeItem, precioTotal } =
-    useContext(contexto);
-  const [idCompra, setIdCompra] = useState("");
+  const { carrito, vaciarCarrito, cantidadTotal, removeItem, precioTotal } = useContext(contexto);
+  
   const navigate = useNavigate();
 
-  
+  //MODAL CON ID DE ORDEN
+  const modalOrden = (id) =>{
+    Swal.fire("¡Pedido procesado!",`Su código de orden es: <b style="color:#4ebea8;">${id}</b></br>Gracias por su compra`, "success")
+  };
 
+  //GUARDA INFO DE LA COMPRA Y ENVIA A FIREBASE
   const guardarCompra = (e) => {
     e.preventDefault();
 
@@ -27,7 +32,6 @@ const Carrito = () => {
         email: e.target[1].value,
         phone: e.target[2].value,
       },
-      //items : [{id:1,titulo:"Pantalon"}],
       items: carrito,
       date: date,
       total: precioTotal(),
@@ -38,12 +42,15 @@ const Carrito = () => {
 
     consulta
       .then((resultado) => {
-        setIdCompra(resultado.id);
+        //NO FUNCIONA ESTA MIERDA
+        console.log(resultado.id);
+        modalOrden(resultado.id);
+        vaciarCarrito()
+        navigate('/')
       })
       .catch((err) => {
         console.log(err);
       });
-      navigate(`/Orden`);
   };
 
   const deleteItem = (item) => () => {
@@ -77,18 +84,14 @@ const Carrito = () => {
                 return (
                   <>
                     <tr>
-                      {
-                        <td>
-                          <img src={e.item.imagen} alt="imagen"></img>
-                        </td>
-                      }
+                      <td><img src={e.item.imagen} alt="imagen"></img></td>
                       <td>{e.item.nombre}</td>
                       <td>$ {e.item.precio}</td>
                       <td>{e.cantidad}</td>
                       <td>
                         <button
                           className="btnRed"
-                          onClick={deleteItem(e.item.ID)}
+                          onClick={deleteItem(e.item.id)}
                         >
                           Eliminar
                         </button>
@@ -108,28 +111,26 @@ const Carrito = () => {
 
           <div className="containerForm">
             <form onSubmit={guardarCompra}>
-              <h4>Información de Envío</h4>
-              <label for="name">Nombre completo:</label>
-              <input
-                type="text"
-                placeholder="Ej: Juanito Trop"
-                id="name"
-                name="name"
-              ></input>
-              <label for="telefono">Teléfono:</label>
-              <input
-                type="tel"
-                placeholder="Ej: 1134563444"
-                id="telefono"
-                name="telefono"
-              ></input>
-              <label for="email">Email:</label>
-              <input
-                type="email"
-                placeholder="Ej: JuanT@gmail.com"
-                id="email"
-                name="email"
-              ></input>
+              <h4>Datos para el envío</h4>
+              <label>Nombre completo:
+                <input
+                  type="text"
+                  placeholder="Ej: Juanito Trop"                
+                ></input>
+              </label>
+              <label>Teléfono:
+                <input
+                  type="tel"
+                  placeholder="Ej: 1134563444"                 
+                ></input>
+              </label>
+              
+              <label>Email:
+                <input
+                  type="email"
+                  placeholder="Ej: JuanT@gmail.com"                  
+                ></input>
+              </label>
               <button type="submit"> Finalizar compra</button>
             </form>
           </div>
