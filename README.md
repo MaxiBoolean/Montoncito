@@ -21,10 +21,10 @@ Al finalizar la compra se guarda el detalle de la misma en Firebase con un ID qu
 
 ## Capturas
 
-![image00](https://i.im.ge/2022/06/06/rWiHLC.png)
-![image01](https://i.im.ge/2022/06/06/rWifRD.png)
-![image02](https://i.im.ge/2022/06/06/rWiV9Y.png)
-![image03](https://i.im.ge/2022/06/06/rWizQ4.png)
+![image00](https://i.im.ge/2022/06/06/rWiHLC.md.png)
+![image01](https://i.im.ge/2022/06/06/rWifRD.md.png)
+![image02](https://i.im.ge/2022/06/06/rWiV9Y.md.png)
+![image03](https://i.im.ge/2022/06/06/rWizQ4.md.png)
 
 ## VIDEO
 En el siguiente [LINK](https://youtu.be/sMzlOrJ36jY) se puede visualizar una demostración del funcionamientro del sitio web.
