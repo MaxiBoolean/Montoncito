@@ -31,3 +31,6 @@ Al finalizar la compra se guarda el detalle de la misma en Firebase con un ID qu
 
 ## VIDEO
 En el siguiente [LINK](https://youtu.be/sMzlOrJ36jY) se puede visualizar una demostración del funcionamientro del sitio web.
+  
+## Sitio desplegado
+El sitio se encuentra desplegado en el siguiente [LINK](https://montoncito.netlify.app/)
