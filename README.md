@@ -22,6 +22,7 @@ Al finalizar la compra se guarda el detalle de la misma en Firebase con un ID qu
 ## Capturas
 
 [![rWiHLC.md.png](https://prnt.sc/fTTtDdnJ6V0B.md.png)](https://prnt.sc/fTTtDdnJ6V0B)
+![memardo](https://user-images.githubusercontent.com/87676106/212456776-f0a72e38-f665-4d2d-aef8-02ccb756be54.jpg)
 
 [![rWifRD.md.png](https://i.im.ge/2022/06/06/rWifRD.md.png)](https://im.ge/i/rWifRD)
 
